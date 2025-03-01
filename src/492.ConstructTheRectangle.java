@@ -1,11 +1,21 @@
 class Solution {
-public:
-    vector<int> constructRectangle(int area) {
-        for(int i = sqrt(area); i >= 0; i--){
-            if(area % i == 0){
-                return vector<int>{area/i, i};
+    public int[] constructRectangle(int area) {
+        int W = 1, L = 1, diff = Integer.MAX_VALUE;
+        
+        for (int i = 1; i <= area / 2; ++i) {
+            if (area % i == 0) {
+                int tempW = area / i, tempL = i;
+                int tempdiff = Math.abs(tempW - tempL);
+                
+                if (diff > tempdiff) {
+                    diff = tempdiff;
+                    W = tempW;
+                    L = tempL;
+                }
             }
         }
-        return vector<int>{};
+        
+        int[] ans = {Math.max(W, L), Math.min(W, L)};
+        return ans;
     }
-};
+}
