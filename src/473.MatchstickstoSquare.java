@@ -13,7 +13,6 @@ class Solution {
         int[] edges = new int[4];
         return dfs(matchsticks.length - 1, x, matchsticks, edges);
     }
-
     private boolean dfs(int u, int x, int[] matchsticks, int[] edges) {
         if (u < 0) {
             return true;
