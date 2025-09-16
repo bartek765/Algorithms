@@ -6,6 +6,7 @@ import java.util.Random;
 import static sorted.BubbleSort.bubbleSort;
 import static sorted.InsertionSort.insertionSort;
 import static sorted.MergeSort.*;
+import static sorted.QuickSort.quickSort;
 
 public class Runner {
     private static int[] randomArray(int size) {
@@ -32,8 +33,9 @@ public class Runner {
         int[] sizes = {10, 100, 1000, 10_000};
 
         int[] a = {7, 3, 8, 1, 10, 2, 4};
-        int[] sorted = mergeSort(a);
-        System.out.println(Arrays.toString(sorted));
+        int n = a.length;
+        quickSort(a,0,n-1);
+        System.out.println(Arrays.toString(a));
 
         //System.out.printf("%-10s | %10s%n", "Size", "Time [ms]");
        // System.out.println("-----------------------------");
